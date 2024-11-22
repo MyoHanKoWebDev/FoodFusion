@@ -1,0 +1,108 @@
+CREATE DATABASE food_fusion;
+
+CREATE TABLE UserFood(
+    uID			INT(4) NOT NULL AUTO_INCREMENT,
+   	uname		VARCHAR(100),
+    uemail      VARCHAR(100),
+    upassword	VARCHAR(100),
+    ucomfirmpass VARCHAR(100),
+    uimage		VARCHAR(150),
+    ujoinDate  	TIME,
+    fattempt	INT DEFAULT 0,
+    lastatt		DATETIME DEFAULT NULL,
+    PRIMARY KEY(uID));
+
+CREATE TABLE IngredientType(
+   	ityID		INT(4) NOT NULL AUTO_INCREMENT,
+   	iType		VARCHAR(100),
+    PRIMARY KEY(ityID));
+
+CREATE TABLE Ingredient(
+   	iID		INT(4) NOT NULL AUTO_INCREMENT,
+   	iname	VARCHAR(100),
+    rID	INT(4),
+    PRIMARY KEY(iID),
+    FOREIGN KEY(rID) REFERENCES recipe(rID));
+
+CREATE TABLE CuisineType(
+   	cuID		INT(4) NOT NULL AUTO_INCREMENT,
+   	cuType		VARCHAR(100),
+    PRIMARY KEY(cuID));
+
+CREATE TABLE Category(
+   	cID			INT(4) NOT NULL AUTO_INCREMENT,
+   	cname		VARCHAR(100),
+    PRIMARY KEY(cID));
+
+CREATE TABLE EaterType(
+   	etID			INT(4) NOT NULL AUTO_INCREMENT,
+   	etperson		VARCHAR(100),
+    PRIMARY KEY(etID));
+
+CREATE TABLE Recipe(
+   	rID			INT(4) NOT NULL AUTO_INCREMENT,
+   	rtitle		VARCHAR(100),
+    prepareTime	VARCHAR(50),
+    cookingTime	VARCHAR(50),
+    availableEater	VARCHAR(50),
+    rimage		VARCHAR(150),
+    rdescription 	VARCHAR(200),
+    rmadeAt		DATETIME,	
+    uID			INT(4),
+    cID			INT(4),
+etID			INT(4),
+    PRIMARY KEY(rID),
+    FOREIGN KEY(uID) REFERENCES UserFood(uID),
+FOREIGN KEY(etID) REFERENCES eaterType(etID),
+    FOREIGN KEY(cID) REFERENCES category(cID));
+
+CREATE TABLE RecipeIngredient(
+   	riID		INT(4) NOT NULL AUTO_INCREMENT,
+    rID			INT(4),
+    iID			INT(4),
+    cID			INT(4),
+    PRIMARY KEY(riID),
+    FOREIGN KEY(rID) REFERENCES Recipe(rID),
+    FOREIGN KEY(iID) REFERENCES Ingredient(iID),
+    FOREIGN KEY(cID) REFERENCES Category(cID));
+
+CREATE TABLE Comment(
+   	cmID		INT(4) NOT NULL AUTO_INCREMENT,
+    content		VARCHAR(200),
+    wroteDate	Time,
+    uID			INT(4),
+    rID			INT(4),
+    PRIMARY KEY(cmID),
+    FOREIGN KEY(rID) REFERENCES Recipe(rID),
+    FOREIGN KEY(uID) REFERENCES UserFood(uID));
+
+CREATE TABLE Rating(
+   	rtID		INT(4) NOT NULL AUTO_INCREMENT,
+    rating		VARCHAR(20),
+    uID			INT(4),
+    rID			INT(4),
+    PRIMARY KEY(rtID),
+    FOREIGN KEY(rID) REFERENCES Recipe(rID),
+    FOREIGN KEY(uID) REFERENCES UserFood(uID));
+
+INSERT INTO category 
+VALUES("","Italian"),
+	  ("","Myanmar"),
+      ("","Mexican"),
+      ("","Indian"),
+      ("","French"),
+      ("","Chinese"),
+	("","American"),
+      ("","Thailand"),
+      ("","Japanese"),
+      ("","Others");
+
+INSERT INTO eatertype VALUES("","Foodies"), ("","Vegetarians"), ("","Health-Conscious Eaters"), ("","Fast Food Lovers"), ("","Eco-Conscious Eaters"), ("","Cultural Fodd Traditionalists"), ("","Diet-Specific Eaters");
+
+CREATE TABLE contact(
+   	ctID		INT(4) NOT NULL AUTO_INCREMENT,
+   	ctname		VARCHAR(100),
+    ctemail		VARCHAR(50),
+    ctph		VARCHAR(20),
+	ctcomment	text,
+    PRIMARY KEY(ctID));

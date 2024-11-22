@@ -1,0 +1,657 @@
+.header3{
+    background-image: url('../images/banner6.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    /* padding: 1rem 0; */
+    min-height: 70vh; 
+}
+/* Main layout container */
+.community-cookbook {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Left content (Recipe explore) takes up more space */
+.left-content {
+    flex: 3; /* Larger portion for the recipe grid */
+    margin-right: 20px;
+}
+
+/* Right content (Sidebar and Share Recipe button) */
+.right-content {
+    flex: 1; /* Smaller portion for sidebar */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Recipe Explore Section Styling */
+.recipe-explore {
+    width: 100%;
+}
+
+.recipe-explore h1{
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+}
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 1rem;
+}
+
+.filter-bar a {
+    padding: 8px 12px;
+    margin: 0 3px;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: 0.5px solid rgb(252, 183, 11);
+    background-color: #fff;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow:5px 5px 20px rgb(209, 209, 209);
+    font-family: 'Merriweather', serif;
+}
+
+.filter-bar a{
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.filter-bar a.active,.filter-bar a:hover{
+    background-color: #ffb300;
+    color: #fff;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px;
+}
+
+.recipe-card {
+    width: 95%;
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.5s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.recipe-card.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+.recipe-card:hover {
+    transform: translateY(-5px);
+}
+
+.recipe-img {
+    width: 100%;
+    height: 28vh;
+    border-radius: 8px;
+    transition: transform 0.5s ease;
+}
+.imgcomcon{
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.recipe-img:hover{
+    transform: scale(1.2);
+}
+
+.recipe-details {
+    margin-top: 8px;
+}
+
+.recipe-details h3{
+    color: orange; 
+    margin-bottom: 10px;
+    font-family: 'Lora', serif;
+}
+
+.overlay1 {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 1);
+    overflow: hidden;
+    width: 100%;
+    height:0;
+    border-radius: 10px;
+    transition: .5s ease;
+  }
+  
+  .user-profilecom:hover .overlay1 {
+    bottom: 10%;
+    height: 100%;
+  }
+  
+  .text1 {
+    color: rgb(3, 3, 3);
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Lora', serif;
+  }
+
+.user-profilecom {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid rgb(127, 127, 127);
+    overflow: hidden;
+    position: relative;
+}
+
+.user-profilecom img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.stats span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.comspan1:hover{
+    color: rgb(255, 174, 0);
+}
+/* Sidebar styling */
+.sidebar {
+    border-radius: 5px;
+    background: #f7f7f7;
+    padding: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h3{
+    margin-bottom: 1rem;
+    font-family: 'Merriweather', serif;
+}
+.comment-box1 {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    padding-left: 3px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 2s ease, transform 1s ease;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.comment-box1:hover{
+    border-radius: 7px;
+    background-color: #ededed;
+}
+
+.comment-box1.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.comment-profile-pic1 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* .comment-content1{
+    margin-top: -5px;
+} */
+.comment-username1 {
+    font-size: 15px;
+    color: #333;
+}
+
+.comment-text1 {
+    color: orange;
+    font-family: 'Lora', serif;
+}
+
+/* Share Recipe button */
+.share-recipe-btn {
+    background-color: #ff9d00;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    border: 2px solid white;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.share-recipe-btn:hover {
+    background-color: #ffffff;
+    color: orange;
+    border: 2px solid orange;
+}
+
+
+/* Modal Container */
+.modal1 {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    animation: fadeIn 0.5s;
+}
+
+/* Modal Content */
+.modal-content1 {
+    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    width: 40%;
+    animation: slideUp 0.5s ease;
+}
+
+/* Close Button */
+.close1 {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close1:hover{
+    color: red;
+}
+
+/* Facebook-style Comment Section */
+.comment-section1 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Individual Comment */
+.comment1 {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Profile Picture */
+.comment-profile-pic2 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.3rem;
+}
+
+/* Comment Content */
+.comment-content1{
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-content1 strong {
+    font-size: 14px;
+    color: #333;
+}
+
+.comment-content1 p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.comment-time1 {
+    font-size: 12px;
+    color: #888;
+}
+
+.cmvis{
+    color: red;
+    margin-left: 3px;
+    font-size: 13.8px;
+}
+
+.cmau{
+    color: rgb(0, 201, 0);
+    margin-left: 3px;
+    font-size: 13.8px;
+}
+
+/* Add Comment Section */
+.add-comment1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.comment-btn1 {
+    background-color: rgb(74, 148, 253);
+    color: white;
+    font-size: 13px;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comment-btn1:hover {
+    background-color: rgb(3, 104, 245);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Profile Card */
+.profile-card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    top: -7rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.profile-header {
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-top: -80px;
+    background-color: #f7f7f7;
+}
+
+.profile-header h2 {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.profile-header p {
+    font-size: 14px;
+    color: #555;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h3 {
+    font-size: 24px;
+    color: #333;
+}
+
+.stat p {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 7px 20px;
+    background-color: #fef8f8;
+    color: rgb(255, 182, 26);
+    border-radius: 10px;
+    border-color: orange;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.sorbtn1{
+    padding: 9px 20px;
+    background-color: #ffb546;
+    border:1px solid white;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Lora', serif;
+    font-family: 'Merriweather', serif;
+}
+
+.sorbtn1:hover{
+    background-color: orange;
+}
+
+.menu-header h1{
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    text-decoration: underline rgb(255, 199, 96) 2px;
+    text-underline-offset: 1rem;
+    margin-top: -5.5rem;
+    font-family: 'Lora', serif;
+}
+/* For large screens (1200px and above) */
+@media (min-width: 1200px) {
+    .community-cookbook {
+        padding: 30px;
+    }
+
+    .left-content {
+        flex: 3;
+    }
+
+    .right-content {
+        flex: 1;
+    }
+
+    .recipe-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for large screens */
+        gap: 20px;
+    }
+
+    .recipe-card {
+        width: 95%;
+        margin: 0;
+    }
+}
+
+/* For medium screens (768px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .community-cookbook {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .left-content {
+        flex: 1;
+        margin-right: 0;
+    }
+
+    .right-content {
+        flex: 1;
+        margin-top: 20px;
+    }
+
+    .recipe-grid {
+        grid-template-columns: repeat(3, 1fr); /* 2 columns for medium screens */
+        gap: 15px;
+    }
+
+    .recipe-card {
+        width: 100%;
+    }
+
+    .recipe-img {
+        width: 100%;
+        height: 21vh;
+    }
+}
+
+/* For small screens (up to 767px) */
+@media (max-width: 767px) {
+    .community-cookbook {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .left-content,
+    .right-content {
+        flex: 1;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 2rem;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .recipe-grid {
+        grid-template-columns: 1fr; /* 1 column for small screens */
+        gap: 10px;
+    }
+
+    .recipe-card {
+        width: 90%;
+        margin: auto;
+    }
+
+    .recipe-img {
+        width: 100%;
+        height: 26vh;
+    }
+
+    .sidebar {
+        width: 90%;
+        margin: auto;
+        margin-bottom: 1rem;
+    }
+
+    .comment-box1 {
+        
+        margin-bottom: 10px;
+    }
+
+    .share-recipe-btn {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .modal-content1 {
+        width: 85%; /* Modal width takes up more space on smaller screens */
+        margin: 20% auto;
+        padding: 10px;
+    }
+
+    .close1 {
+        font-size: 20px; /* Smaller close button */
+    }
+
+    .comment-section1 {
+        gap: 10px; /* Reduce gap between comments */
+    }
+
+    .comment1 {
+        gap: 6px;
+        padding: 8px;
+    }
+
+    .comment-profile-pic2 {
+        width: 30px; /* Smaller profile picture for mobile */
+        height: 30px;
+    }
+
+    .comment-content1 strong {
+        font-size: 13px; /* Slightly smaller font */
+    }
+
+    .comment-content1 p {
+        font-size: 12px;
+    }
+
+    .comment-time1 {
+        font-size: 11px;
+    }
+
+    .comment-btn1 {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}
